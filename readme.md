@@ -1,67 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypofolder</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        code {
-            background: #eee;
-            padding: 2px 5px;
-            border-radius: 4px;
-        }
-        pre {
-            background: #222;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-    </style>
-</head>
-<body>
-    <h1>Secure File Encryption</h1>
+# 🔒 Crypofolder - Folder Encryption System
 
-    <h2>How It Works</h2>
-    <p>This encryption system ensures robust security for your files using <strong>AES-256 in CBC mode</strong>, one of the most trusted encryption standards available.</p>
+## Overview
+This project provides a **secure AES-256 encryption system** to protect all files inside a folder. It encrypts and decrypts files using a password, ensuring privacy and security.
 
-    <h2>Key Features</h2>
-    <ul>
-        <li><strong>Strong Encryption:</strong> Each file is encrypted using <code>AES-256</code> in <code>CBC mode</code> for enhanced security.</li>
-        <li><strong>Unique Encryption for Each File:</strong> A random <code>Initialization Vector (IV)</code> ensures uniqueness even if the same file is encrypted multiple times.</li>
-        <li><strong>Secure Key Derivation:</strong> A random <code>salt</code> is used to derive the encryption key using <code>PBKDF2</code> to resist brute-force attacks.</li>
-        <li><strong>Storage of Encryption Parameters:</strong> The salt is securely stored in <code>encryption_key.json</code>.</li>
-        <li><strong>File Management:</strong>
-            <ul>
-                <li>Encrypted files have a <code>.enc</code> extension.</li>
-                <li>Original files are securely deleted after encryption.</li>
-            </ul>
-        </li>
-    </ul>
+## Features
+✅ AES-256 encryption (CBC mode) for strong security  
+✅ Automatically generates a **random IV** for each file  
+✅ Uses **PBKDF2 key derivation** with a salt for enhanced protection  
+✅ Deletes the original files after encryption  
+✅ Stores encryption metadata securely in `encryption_key.json`  
+✅ Decrypts files back to their original state  
 
-    <h2>Important Considerations</h2>
-    <p>While this implementation provides strong security, consider the following for handling highly sensitive data:</p>
-    <ul>
-        <li><strong>Error Handling:</strong> Implement proper exception handling to avoid encryption failures.</li>
-        <li><strong>Secure Key Storage:</strong> Use a <code>hardware security module (HSM)</code> or a secure vault instead of local storage.</li>
-        <li><strong>Metadata Protection:</strong> Encrypt filenames and metadata to prevent leaks.</li>
-    </ul>
+## Installation
+### 1. Install Dependencies
+Make sure you have Python installed, then install the required library:
+```bash
+pip install cryptography
+```
 
-    <h2>Disclaimer</h2>
-    <p>This encryption tool is a basic implementation. <strong>Use it at your own risk</strong> and consider additional security measures if dealing with classified information.</p>
+### 2. Clone This Repository
+```bash
+git clone https://github.com/yourusername/crypofolder.git
+cd crypofolder
+```
 
-    <hr>
-    <p>Stay secure, encrypt wisely!</p>
-</body>
-</html>
+## Usage
+### Encrypt a Folder
+Run the following command to encrypt all files in a folder:
+```python
+from crypofolder import encrypt_folder
+encrypt_folder("/path/to/folder", "YourStrongPassword")
+```
+This will:
+- Encrypt all files in the specified folder
+- Remove the original files
+- Save encryption metadata in `encryption_key.json`
+
+### Decrypt a Folder
+To restore the original files, run:
+```python
+from crypofolder import decrypt_folder
+decrypt_folder("/path/to/folder", "YourStrongPassword")
+```
+This will:
+- Decrypt all `.enc` files
+- Restore the original files
+- Delete `encryption_key.json` after decryption
+
+## How It Works
+1. A **random salt** is generated for key derivation (PBKDF2 with SHA-256)
+2. A **32-byte AES key** is derived from the password
+3. Each file is encrypted using **AES-256 in CBC mode** with a **random IV**
+4. The encrypted file is stored with an `.enc` extension
+5. Original files are **deleted** for security
+
+## Security Considerations
+- **Do not lose your password!** The files **cannot** be decrypted without it.
+- The encryption key is derived using **PBKDF2** for extra protection.
+- The `encryption_key.json` stores only the salt (not the password or key), making brute-force attacks difficult.
+- Consider storing encrypted backups in a safe location.
+
+## License
+This project is licensed under the **MIT License**.
+
+## Author
+👤 **Your Name**  
+🔗 [Your GitHub](https://github.com/yourusername)  
+📧 YourEmail@example.com
+
