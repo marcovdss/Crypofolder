@@ -65,7 +65,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 
 ## Author
-👤 **Your Name**  
-🔗 [Your GitHub](https://github.com/yourusername)  
-📧 YourEmail@example.com
+👤 **Marcovdss**  
+🔗 [Github](https://github.com/marcovdss)  
+📧 marcos.vdss@outlook.com
 
