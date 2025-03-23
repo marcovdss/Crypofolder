@@ -1,7 +1,7 @@
 # 🔒 Crypofolder - Folder Encryption System
 
 ## Overview
-This project provides a **secure AES-256 encryption system** to protect all files inside a folder. It encrypts and decrypts files using a password, ensuring privacy and security.
+This study project tries to provides a **secure AES-256 encryption system** to protect all files inside a folder. It encrypts and decrypts files using a password, ensuring privacy and security.
 
 ## Features
 ✅ AES-256 encryption (CBC mode) for strong security  
