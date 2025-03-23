@@ -20,7 +20,7 @@ pip install cryptography
 
 ### 2. Clone This Repository
 ```bash
-git clone https://github.com/yourusername/crypofolder.git
+git clone https://github.com/marcovdss/Crypofolder.git
 cd crypofolder
 ```
 
