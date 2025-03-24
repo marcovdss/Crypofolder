@@ -5,12 +5,13 @@
 Crypofolder is a study project focused on creating a **secure AES-256-GCM encryption system** designed to protect all files inside a folder. It encrypts and decrypts files using a password, ensuring privacy and security with modern cryptographic standards.
 
 ## Features
- **AES-256-GCM encryption** for authenticated encryption  
- Automatically generates a **random IV** for each file (AES-GCM's recommended 12-byte size)  
- Uses **PBKDF2 key derivation** with a salt for enhanced protection  
- Deletes the original files after encryption for added security  
- Stores encryption metadata securely in `encryption_key.json`  
- Decrypts files back to their original state, preserving file integrity and authentication  
+- **AES-256-GCM encryption** for authenticated encryption
+- Automatically generates a **random IV** for each file (AES-GCM's recommended 12-byte size)
+- Uses **PBKDF2 key derivation** with a salt for enhanced protection
+- Deletes the original files **after encryption** for added security
+- Stores encryption metadata securely in **encryption_key.json**
+- Decrypts files back to their original state, preserving file integrity and authentication
+
 
 ## Installation
 ### 1. Install Dependencies
