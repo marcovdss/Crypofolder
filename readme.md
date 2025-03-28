@@ -50,6 +50,7 @@ This will:
 - Delete the `encryption_key.json` after decryption
 
 ## How It Works
+![alt text](Diagram.png)
 1. A **random salt** is generated for key derivation (PBKDF2 with SHA-256)
 2. A **32-byte AES key** is derived from the password using PBKDF2
 3. Each file is encrypted using **AES-256 in GCM mode**, ensuring both encryption and authentication
